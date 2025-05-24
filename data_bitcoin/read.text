@@ -1,0 +1,3 @@
+This section is for storing data for cryptocurrency
+1.  btc.csv covers the last two month 5 mins interval OHLCV data
+2. bitcoin_last_30days_5mins_data_cnc.csv covers more features including	Volume 24h (USD)	Percent Change 1h	Percent Change 24h	Percent Change 7d	Circulating Supply	Total Supply	Max Supply	Num Market Pairs
