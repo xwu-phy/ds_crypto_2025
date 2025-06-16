@@ -6,12 +6,14 @@ This folder contains utility scripts. Below is a description of the main scripts
 
 ## `CryptoDataCleaner.py`
 
-A modular class for remove duplicate and fill missing rows in raw OHLCV data
+A modular class for remove duplicate and fill missing rows in raw OHLCV data:
 
 1. **Removing duplicate rows based on (coin_id, timestamp)**
 2. **Filling missing timestamps** for each coin at fixed 1-minute intervals
 3. **Forward-filling missing OHLCV values** assume zero trade (volume) and static price (all prices = close price from last known data point), as described in details below.
 4. **Validating data integrity** (e.g. checking for NaNs, negative values, or logical OHLC issues)
+
+Data generated using CryptoDataCleaner.py is saved in [output.zip](https://drive.google.com/file/d/17llEK20pb0Q4pmDU2Gg1H4ruWJFFyAHg/view?usp=sharing).
 
 - **Forward Fill Steps**
 
