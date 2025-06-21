@@ -5,9 +5,9 @@ from scipy.stats import randint, uniform
 from xgboost import XGBClassifier
 from sklearn.model_selection import RandomizedSearchCV, TimeSeriesSplit
 #from sklearn.metrics import make_scorer, precision_score
-from scripts.data_processing import get_features_and_target
-from scripts.config import CFG
-from scripts.model_evaluation import evaluate_model
+from data_processing import get_features_and_target
+from config import CFG
+from model_evaluation import evaluate_model
 
 
 logger = logging.getLogger(__name__)
