@@ -1,12 +1,10 @@
 # erdos_src/data_processing.py
 import pandas as pd
 import numpy as np
-import logging as logger
 import os
 from config import CFG
-from feature_engineering import run_feature_engineering
+from feature_engineering_xh import run_feature_engineering
 
-logger = logger.getLogger(__name__)
 
 def load_data(path, coin_id_col, ts_col, chosen_coin = None):
     '''
@@ -19,22 +17,15 @@ def load_data(path, coin_id_col, ts_col, chosen_coin = None):
     Returns:
         pd.DataFrame: Preprocessed DataFrame with coin data.
     '''
-    logger.info(f"Loading data from {path}...")
     if not os.path.exists(path):
         raise FileNotFoundError(f"Data file not found: {path}")
     df = pd.read_parquet(path)
     if not pd.api.types.is_datetime64_any_dtype(df[ts_col]):
-        logger.info("Converting timestamp column to datetime format.")
         df[ts_col] = pd.to_datetime(df[ts_col])
 
-    logger.info(f"Ensure the dataframe is sorted by ({coin_id_col}, {ts_col}).")
     df.sort_values(by=[coin_id_col, ts_col], inplace=True)
     if chosen_coin is not None:
-        logger.info(f"Isolating data for coin: {chosen_coin}")
         df = df[df[coin_id_col] == chosen_coin]
-    else:
-        logger.info("No specific coin_id provided, loading all data.")
-    logger.info(f"Data loaded with shape: {df.shape}")
     return df
 
 
@@ -117,15 +108,11 @@ def split_data(df: pd.DataFrame, ts_col: str, train_ratio: float, round_frequenc
     Returns:
         tuple: A tuple containing the training DataFrame and the testing DataFrame.
     """
-    logger.info(f"Splitting data with a {train_ratio:.0%} train ratio, rounding to the start of the {round_frequency}...")
-
     # --- Calculate the exact cutoff timestamp ---
     min_ts = df[ts_col].min()
     max_ts = df[ts_col].max()
     total_duration = max_ts - min_ts
     exact_cutoff_ts = min_ts + (total_duration * train_ratio)
-
-    logger.info(f"Exact calculated split point: {exact_cutoff_ts}")
 
     # --- Round the cutoff timestamp down to the start of the specified frequency ---
     if round_frequency == 'month':
@@ -137,13 +124,10 @@ def split_data(df: pd.DataFrame, ts_col: str, train_ratio: float, round_frequenc
     else:
         # If no rounding is specified, use the exact point
         rounded_cutoff_ts = exact_cutoff_ts
-    logger.info(f"Split point rounded to: {rounded_cutoff_ts}")
 
     train_df = df[df[ts_col] < rounded_cutoff_ts].copy()
     test_df = df[df[ts_col] >= rounded_cutoff_ts].copy()
 
-    logger.info(f"Training data from {train_df[ts_col].min()} to {train_df[ts_col].max()}")
-    logger.info(f"Test data from {test_df[ts_col].min()} to {test_df[ts_col].max()}")
     return train_df, test_df
 
 
@@ -158,15 +142,12 @@ def create_target(df: pd.DataFrame, coin_id_col:str, target_col:str, horizon:int
     Returns:
         pd.DataFrame: The DataFrame with the target variable added.
     """
-    logger.info(f"Calculating target variable '{target_col}'...")
 
     df_out = df.copy()
     df_out['future_price'] = df_out.groupby(coin_id_col, observed = True)['close'].shift(-horizon)
     df_out['future_log_return'] = np.log(df_out['future_price']) - np.log(df_out['close'])
     df_out[target_col] = (df_out['future_log_return'] > 0).astype(int)
     df_out = df_out.dropna(subset=['future_price', target_col])
-
-    logger.info("Target variable created successfully.")
     return df_out
 
 def _reduce_mem_usage(dataframe, dataset):    
@@ -216,11 +197,8 @@ def get_features_and_target(path, split=True, chosen_coin=None):
         tuple: A tuple containing the training DataFrame and the testing DataFrame.
         or df
     '''
-    logger.info("Separating features and target...")
     df = load_data(path = CFG.FF_DATA_PATH, coin_id_col = CFG.COIN_ID_COLUMN, ts_col = CFG.TIMESTAMP_COLUMN, chosen_coin = None)
-    logger.info(f"Data loaded with shape: {df.shape}; resampling to {CFG.GRANULARITY} granularity...")
     df = resample_to_granularity(df = df)
-    logger.info(f"Data resampled to {CFG.GRANULARITY} granularity with shape: {df.shape}")
     df = create_target(df = df, coin_id_col = CFG.COIN_ID_COLUMN, 
                           target_col = CFG.TARGET_COLUMN, 
                           horizon = CFG.PREDICTION_HORIZON_STEPS)
@@ -232,7 +210,6 @@ def get_features_and_target(path, split=True, chosen_coin=None):
     train_df, test_df = split_data(df = df, ts_col = CFG.TIMESTAMP_COLUMN, train_ratio = CFG.TRAIN_RATIO, round_frequency=CFG.SPLIT_ROUND_FREQUENCY)
 
     if chosen_coin is not None:
-        logger.info(f"Filtering data for coin: {chosen_coin}")
         df = df[df[CFG.COIN_ID_COLUMN] == chosen_coin]
         train_df = train_df[train_df[CFG.COIN_ID_COLUMN] == chosen_coin]
         test_df = test_df[test_df[CFG.COIN_ID_COLUMN] == chosen_coin]
