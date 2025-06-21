@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import os
-from scripts.config import CFG
+from config import CFG
 
 CONFIG = {
     'initial_capital': 10000.0,
