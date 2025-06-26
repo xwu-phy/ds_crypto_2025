@@ -21,7 +21,7 @@ Model & Backtesting: A LightGBM classifier is trained on historical data and its
 Data Overview
 Data Type: OHLCV (Open, High, Low, Close, Volume) (Download the dataset from [Google Drive](https://drive.google.com/file/d/1ADpUoKo2IAiTaNEEpOH0nthxmhFyCiw6/view?usp=sharing).)
 
-Time Period: January 1, 2021 - April 1, 2025
+Time Period: January 1, 2021 - April 29, 2025
 
 Assets: BTC, BNB, ETH, SOL, XRP
 
