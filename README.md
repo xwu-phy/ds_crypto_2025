@@ -27,7 +27,8 @@ Assets: BTC, BNB, ETH, SOL, XRP
 
 Sources: Yahoo Finance & Kaggle
 
-Model Deep Dive: LightGBM
+Model Deep Dive: LightGBM,Linear Regression,LSTM, XGBoost,ARIMA.
+ 
 LightGBM (Light Gradient Boosting Machine): We chose LightGBM because it is a fast and efficient gradient boosting framework. It builds an ensemble of decision trees sequentially, where each new tree corrects the errors of the previous ones. Its performance is ideal for the large and noisy datasets found in financial markets.
 
 Handling Class Imbalance with scale_pos_weight:
@@ -49,9 +50,3 @@ Future Work:
 On-Chain Data: Incorporate data directly from the blockchain to gauge network health and activity. This includes metrics like transaction volume, the number of active addresses, and network fees. A surge in active addresses, for instance, can signal growing adoption and potential upward price pressure.
 
 Market Microstructure Data: Utilize detailed exchange-level data to understand real-time supply and demand. This includes analyzing order book depth to identify support and resistance levels, and tracking perpetual funding rates and open interest to gauge the sentiment and positioning of leveraged traders.
-
-Sentiment Analysis: Deploy NLP models to analyze data from social media and news sources to measure market sentiment, which can be a powerful leading indicator of price changes.
-
-Advanced Models: Explore more complex models, including deep learning architectures like LSTMs or Transformers, which are well-suited for capturing long-term dependencies in time-series data.
-
-Live Deployment: Develop and deploy a live trading bot that executes trades in real-time based on the model's predictions.
