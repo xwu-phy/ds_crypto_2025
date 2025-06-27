@@ -21,7 +21,7 @@ The core research question is whether we can build ML models that provide a stat
 * **Assets**: BTC, BNB, ETH, SOL, XRP
 * **Time Range**: January 1, 2021 – April 29, 2025
 * **Source**: Yahoo Finance, Kaggle
-* [Google Drive](https://drive.google.com/file/d/1ADpUoKo2IAiTaNEEpOH0nthxmhFyCiw6/view?usp=sharing).)
+* **Download**: [Google Drive](https://drive.google.com/file/d/1ADpUoKo2IAiTaNEEpOH0nthxmhFyCiw6/view?usp=sharing).
 * **Time Intervals**: Data was resampled and evaluated at 1-minute, 10-minute, 4-hour, and 1-day frequencies. The 10-minute interval provided the most robust results.
 * **Data Split**:
     * **Training Set**: All data before January 1, 2025.
