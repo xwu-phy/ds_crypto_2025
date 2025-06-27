@@ -55,6 +55,7 @@ All machine learning models demonstrated a significant performance uplift over t
 | --------------------- | ----------------- | ------------ |
 | **Logistic Regression** | **16.91%** | **0.68** |
 | XGBoost               | 15.40%            | 0.64         |
+| LSTM               | 15.33%             | 0.63         |
 | LightGBM              | 12.80%            | 0.41         |
 | ARIMA (Baseline)      | -3.81%            | -0.23        |
 | Buy & Hold (Baseline) | -8.11%            | -0.27        |
