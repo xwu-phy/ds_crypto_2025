@@ -1,10 +1,8 @@
 # ds_crypto_2025
 data science project on cryptocurrency
 
-Cryptocurrency Trading Bot: A Machine Learning Approach
-Forecasting Price Movements with Predictive Modeling
-
-# Cryptocurrency Price Forecasting using Machine Learning
+# Cryptocurrency Trading Bot: A Machine Learning Approach
+## Forecasting Price Movements with Predictive Modeling
 
 This project investigates the feasibility of forecasting near-term cryptocurrency price movements using machine learning models trained on historical OHLCV data. The goal is to transform these forecasts into actionable trading strategies that outperform standard market baselines.
 
