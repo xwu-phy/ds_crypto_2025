@@ -38,7 +38,6 @@ class LSTMDataLoader:
             self.feature_columns = feature_columns
         else:
             raise ValueError(f"Feature selection file not specified")
-        return feature_columns
 
     
     def load_data(self):
