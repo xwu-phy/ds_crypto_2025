@@ -1,0 +1,296 @@
+{
+  "XRPUSDT": {
+    "coin": "XRPUSDT",
+    "best_config": {
+      "scaler_type": "robust",
+      "sequence_length": 20
+    },
+    "best_metrics": {
+      "roc_auc": 0.5358561673757493,
+      "accuracy": 0.5291219384476233,
+      "val_loss": 0.6907187104225159
+    },
+    "all_results": [
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5335620175294784,
+        "final_val_accuracy": 0.53083862981742,
+        "best_val_loss": 0.6908548474311829,
+        "best_epoch": 9,
+        "training_epochs": 9,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.5349769912259913,
+        "final_val_accuracy": 0.5273142748327819,
+        "best_val_loss": 0.6910657286643982,
+        "best_epoch": 11,
+        "training_epochs": 11,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.5340798703186344,
+        "final_val_accuracy": 0.5295307924869664,
+        "best_val_loss": 0.6908493638038635,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5358561673757493,
+        "final_val_accuracy": 0.5291219384476233,
+        "best_val_loss": 0.6907187104225159,
+        "best_epoch": 8,
+        "training_epochs": 8,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5347128068213955,
+        "final_val_accuracy": 0.5272467563385311,
+        "best_val_loss": 0.6907371282577515,
+        "best_epoch": 10,
+        "training_epochs": 10,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5293858246900832,
+        "final_val_accuracy": 0.5274107929253256,
+        "best_val_loss": 0.691258430480957,
+        "best_epoch": 14,
+        "training_epochs": 14,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.5297630465721179,
+        "final_val_accuracy": 0.5238627978386613,
+        "best_val_loss": 0.6913028955459595,
+        "best_epoch": 14,
+        "training_epochs": 14,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.5292540225912956,
+        "final_val_accuracy": 0.5257219034922751,
+        "best_val_loss": 0.6912985444068909,
+        "best_epoch": 12,
+        "training_epochs": 12,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5293628464237665,
+        "final_val_accuracy": 0.5237664532406636,
+        "best_val_loss": 0.6914214491844177,
+        "best_epoch": 11,
+        "training_epochs": 11,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "XRPUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5294554293309293,
+        "final_val_accuracy": 0.5229139388168075,
+        "best_val_loss": 0.6914053559303284,
+        "best_epoch": 12,
+        "training_epochs": 12,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      }
+    ]
+  }
+}

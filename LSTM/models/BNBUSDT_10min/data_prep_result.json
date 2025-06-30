@@ -1,0 +1,296 @@
+{
+  "BNBUSDT": {
+    "coin": "BNBUSDT",
+    "best_config": {
+      "scaler_type": "robust",
+      "sequence_length": 40
+    },
+    "best_metrics": {
+      "roc_auc": 0.5244646310445585,
+      "accuracy": 0.5091528005903497,
+      "val_loss": 0.6926351189613342
+    },
+    "all_results": [
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5244646310445585,
+        "final_val_accuracy": 0.5091528005903497,
+        "best_val_loss": 0.6926351189613342,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.523829193937217,
+        "final_val_accuracy": 0.5126752517197877,
+        "best_val_loss": 0.6924688816070557,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.5164574543024099,
+        "final_val_accuracy": 0.5155331254314757,
+        "best_val_loss": 0.6925110816955566,
+        "best_epoch": 11,
+        "training_epochs": 11,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5238068539378791,
+        "final_val_accuracy": 0.5136505367386285,
+        "best_val_loss": 0.6925421953201294,
+        "best_epoch": 8,
+        "training_epochs": 8,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5177834612086379,
+        "final_val_accuracy": 0.5136293298416855,
+        "best_val_loss": 0.6926167607307434,
+        "best_epoch": 9,
+        "training_epochs": 9,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.520728751459538,
+        "final_val_accuracy": 0.5150801018829299,
+        "best_val_loss": 0.6924216747283936,
+        "best_epoch": 18,
+        "training_epochs": 18,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.5198569777129236,
+        "final_val_accuracy": 0.5144843017304992,
+        "best_val_loss": 0.6925088167190552,
+        "best_epoch": 16,
+        "training_epochs": 16,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.5204564341923092,
+        "final_val_accuracy": 0.513890542052515,
+        "best_val_loss": 0.6925202012062073,
+        "best_epoch": 23,
+        "training_epochs": 23,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5198731987362581,
+        "final_val_accuracy": 0.5140551733987099,
+        "best_val_loss": 0.6924609541893005,
+        "best_epoch": 19,
+        "training_epochs": 19,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "BNBUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5205121278672162,
+        "final_val_accuracy": 0.5153434114986312,
+        "best_val_loss": 0.6925714612007141,
+        "best_epoch": 17,
+        "training_epochs": 17,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "best_hyperparameters": {
+    "lstm_units_l1": 64,
+    "lstm_units_l2": 16,
+    "dropout_rate_l1": 0.1,
+    "dropout_rate_l2": 0.1,
+    "dense_units": 16,
+    "learning_rate": 0.003991305878561679,
+    "batch_size": 32
+  },
+  "best_validation_roc_auc": 0.5246719820887948,
+  "optimization_trials": 5,
+  "timestamp": "20250626_183552",
+  "data_loader_config": {
+    "scaler_type": "robust",
+    "sequence_length": 40,
+    "chosen_coin": "BNBUSDT",
+    "granularity": "10min",
+    "feature_columns": [
+      "price_vs_resistance_20",
+      "atr_14",
+      "upper_shadow",
+      "shadow_ratio",
+      "resistance_20",
+      "lower_shadow",
+      "return_3",
+      "return_1",
+      "price_vs_resistance_50",
+      "number_of_trades",
+      "volume_price_trend",
+      "price_vs_vwap",
+      "resistance_50",
+      "bb_lower",
+      "adl",
+      "price_vs_support_50",
+      "price_vs_ema_50",
+      "bb_mid",
+      "hl_spread",
+      "volu_ma_5",
+      "stoch_k",
+      "bb_position",
+      "dayofweek_cos",
+      "low",
+      "vol_5",
+      "macd_signal",
+      "vwap_5",
+      "ema_20",
+      "volume_ratio_20",
+      "vpt"
+    ]
+  }
+}

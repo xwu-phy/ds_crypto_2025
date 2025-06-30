@@ -1,0 +1,296 @@
+{
+  "BTCUSDT": {
+    "coin": "BTCUSDT",
+    "best_config": {
+      "scaler_type": "robust",
+      "sequence_length": 20
+    },
+    "best_metrics": {
+      "roc_auc": 0.5260943814727571,
+      "accuracy": 0.5176969033394425,
+      "val_loss": 0.6921426653862
+    },
+    "all_results": [
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5229682280629316,
+        "final_val_accuracy": 0.5149848841914828,
+        "best_val_loss": 0.6924529671669006,
+        "best_epoch": 8,
+        "training_epochs": 8,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.5230768773126963,
+        "final_val_accuracy": 0.5165075813477422,
+        "best_val_loss": 0.6925817728042603,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.5233388803145299,
+        "final_val_accuracy": 0.5153664865379579,
+        "best_val_loss": 0.6924207210540771,
+        "best_epoch": 9,
+        "training_epochs": 9,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5260943814727571,
+        "final_val_accuracy": 0.5176969033394425,
+        "best_val_loss": 0.6921426653862,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5240996546518845,
+        "final_val_accuracy": 0.5156290917747887,
+        "best_val_loss": 0.6925169825553894,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5237012053174559,
+        "final_val_accuracy": 0.517627175129139,
+        "best_val_loss": 0.6923168897628784,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.5,
+        "final_val_accuracy": 0.5018923615243627,
+        "best_val_loss": 0.6931401491165161,
+        "best_epoch": 9,
+        "training_epochs": 9,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.522975559846702,
+        "final_val_accuracy": 0.5177946532720737,
+        "best_val_loss": 0.6923942565917969,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5,
+        "final_val_accuracy": 0.5019160735962678,
+        "best_val_loss": 0.6931435465812683,
+        "best_epoch": 11,
+        "training_epochs": 11,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "BTCUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5252779170600386,
+        "final_val_accuracy": 0.5180097607427687,
+        "best_val_loss": 0.6922590136528015,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      }
+    ]
+  }
+}
