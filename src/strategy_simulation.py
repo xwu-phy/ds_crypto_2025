@@ -1,13 +1,11 @@
 import numpy as np
 import pandas as pd
 import os
-from config import CFG
 
 CONFIG = {
     'initial_capital': 10000.0,
     'commission_rate': 0,       # 0.1% trading fee 0.001
     'slippage_factor': 0,      # 0.05% slippage 0.0005
-    'data_frequency': '1H',         # Can be '1H', '4H', '1D', etc.
     'risk_free_rate': 0.0,
     'strategy_params': {
         'long_short': {
@@ -15,71 +13,14 @@ CONFIG = {
             'sell_threshold': 0.5
         },
         'trend_following': {
-            'sma_window': 200       # The lookback period for the long-term SMA that defines the trend. A common value is 50, 100, or 200.
-        },
-        'mean_reversion': {
-            'bb_window': 20,        # Lookback window for Bollinger Bands
-            'bb_std_dev': 2.0       # Number of standard deviations
+            'sma_window': 50       # The lookback period for the long-term SMA that defines the trend. A common value is 50, 100, or 200.
         }
     }
 }
 
 
-
 # --- Strategy Signal Generation ---
-# --- 1. Mean Reversion Strategy (with Bollinger Bands/ No need for prediction) ---
-def generate_mean_reversion_positions(data):
-    """
-    Generates positions for a Mean Reversion strategy using Bollinger Bands®.
-
-    This strategy operates independently of a prediction model. It sells when
-    the price touches the upper band and buys when it touches the lower band,
-    assuming the price will revert to the mean.
-
-    Args:
-        data (pd.DataFrame): DataFrame with at least a 'close' column.
-    Returns:
-        pd.Series: A Series of trading positions.
-    """
-    window = CONFIG['strategy_params']['mean_reversion']['bb_window']
-    num_std_dev = CONFIG['strategy_params']['mean_reversion']['bb_std_dev']
-    # 1. Calculate the three Bollinger Bands®.
-    middle_band = data['close'].rolling(window=window).mean()           # Middle Band: A simple moving average.
-    std_dev = data['close'].rolling(window=window).std()
-    upper_band = middle_band + (std_dev * num_std_dev)
-    lower_band = middle_band - (std_dev * num_std_dev)
-
-    # 2. Initialize positions with zeros.
-    positions = pd.Series(index=data.index, data=0, name='position')
-    
-    # 3. Generate signals based on price crossing the bands.
-    # Note: We compare today's price with yesterday's band to avoid lookahead bias.
-    # Go Long (+1) if the price crosses BELOW the lower band.
-    positions[data['close'] < lower_band] = 1
-    # Go Short (-1) if the price crosses ABOVE the upper band.
-    positions[data['close'] > upper_band] = -1
-
-    # 4. Generate exit signals: Close the position when the price crosses the middle band.
-    # If we are long and price goes above middle, or if we are short and price goes below, exit.
-    # To implement this simply, we can use a forward-fill approach.
-    # However, a simpler model for backtesting is to hold for a fixed number of periods
-    # or until the price crosses the middle band. For simplicity here, we will hold
-    # the position until an opposing signal is generated. A more complex exit logic
-    # would involve tracking the state (e.g., are we currently in a long trade?).
-    # Let's refine the exit logic for clarity:
-
-    # Create a consolidated signal series (1 for buy, -1 for sell, 0 for hold)
-    signals = pd.Series(index=data.index, data=0, name='signal')
-    signals[data['close'] < lower_band] = 1         # Buy signal
-    signals[data['close'] > upper_band] = -1        # Sell signal
-    
-    # Forward-fill the signals to hold positions until a new signal appears.
-    # For example, a +1 signal will be carried forward until a -1 or 0 signal appears.
-    positions = signals.replace(to_replace=0, method='ffill').fillna(0)
-
-    return positions
-
-# --- 2. Buy and Hold Strategy (No need for prediction) ---
+# --- Buy and Hold Strategy (No need for prediction) ---
 def generate_buy_and_hold_positions(data):
     """
     Generates positions for a simple Buy and Hold strategy.
@@ -100,7 +41,7 @@ def generate_buy_and_hold_positions(data):
     
     return positions
 
-# --- 3. Long-short strategy ---
+# --- Long-short strategy ---
 def generate_long_short_positions(predictions):
     """
     Generates positions directly from the model's prediction signals.
@@ -120,7 +61,27 @@ def generate_long_short_positions(predictions):
     positions[short_condition] = -1
     return positions
 
-# --- 4. trend_following_overlay ---
+# --- Long-only strategy ---
+def generate_long_only_positions(predictions):
+    """
+    Generates positions directly from the model's prediction signals.
+
+    This strategy acts as a pure test of the model's accuracy.
+    A +1 prediction becomes a long position, a 0 prediction becomes a short position.
+
+    Args:
+        predictions (pd.Series): A Series of prediction signals (+1, -1, or 0) from forecasting model, or the Series of pred_proba
+    Returns:
+        pd.Series: A Series of trading positions.
+    """
+    positions = pd.Series(index=predictions.index, data=0, name='position')
+    long_condition = predictions > CONFIG['strategy_params']['long_short']['buy_threshold']
+    positions[long_condition] = 1
+    # short_condition = (1 - predictions) > CONFIG['strategy_params']['long_short']['sell_threshold']
+    # positions[short_condition] = 0
+    return positions
+
+# --- trend_following_overlay ---
 def generate_trend_following_positions(data, predictions):
     """
     Generates positions by filtering primary signals with a long-term trend.
@@ -205,17 +166,16 @@ def run_vectorized_backtest(price_data: pd.DataFrame, positions: pd.Series) -> p
 
 
 def generate_strategy_positions(strategy_name, data, predictions=None):
-    """
-    Dispatcher to generate positions based on the strategy name.
-    """
-    if strategy_name == 'mean_reversion':
-        return generate_mean_reversion_positions(data)
-    elif strategy_name == 'buy_and_hold':
+    if strategy_name == 'buy_and_hold':
         return generate_buy_and_hold_positions(data)
     elif strategy_name == 'long_short':
         if predictions is None:
             raise ValueError("Long-short strategy requires predictions.")
         return generate_long_short_positions(predictions)
+    elif strategy_name == 'long_only':
+        if predictions is None:
+            raise ValueError("Long-only strategy requires predictions.")
+        return generate_long_only_positions(predictions)
     elif strategy_name == 'trend_following':
         if predictions is None:
             raise ValueError("Trend-following strategy requires predictions.")
@@ -224,20 +184,16 @@ def generate_strategy_positions(strategy_name, data, predictions=None):
         raise ValueError(f"Unknown strategy: {strategy_name}")
 
 
+def calculate_single_coin_return(strategy_name, result_df):
+    price_cols = ['open', 'close']
+    price_data = result_df[price_cols]
+    predictions = result_df['y_test_pred']
+    positions = generate_strategy_positions(strategy_name, price_data, predictions)
+    net_returns = run_vectorized_backtest(price_data, positions)
+    return net_returns
+
+
 def calculate_portfolio_return(strategy_name, weights, all_coin_data, all_coin_predictions=None):
-    """
-    Calculates the returns of a portfolio of assets, given a trading strategy and asset weights.
-
-    Args:
-        strategy_name (str): The name of the strategy to use.
-        weights (dict): A dictionary with coin names as keys and their portfolio weights as values.
-        all_coin_data (dict): A dictionary of pandas DataFrames, one for each coin, with price data.
-        all_coin_predictions (dict, optional): A dictionary of pandas Series, one for each coin,
-                                               with prediction signals. Required for some strategies.
-
-    Returns:
-        pd.Series: A Series representing the daily net returns of the portfolio.
-    """
     all_weighted_returns = {}
     
     for coin, weight in weights.items():

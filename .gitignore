@@ -172,3 +172,32 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Project-specific ignores
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
+# Data files (large datasets)
+*.parquet
+*.csv
+*.zip
+data/raw/
+data/processed/
+*.pkl
+*.h5
+
+# Model artifacts
+models/
+*.model
+*.joblib
+
+# Optuna database
+optuna.db
+*.db
+
+# Temporary files
+temp/
+tmp/
+*.tmp
