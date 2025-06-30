@@ -1,0 +1,76 @@
+# LSTM Model Configuration
+
+model:
+  name: "LSTM"
+  type: "classification"
+
+# Data preprocessing optimization (your data prep optimization before Optuna)
+data_preprocessing_optimization:
+  sequence_length_candidates: [30, 45, 60, 75, 90]
+  scaler_types: ["standard", "robust", "minmax"]  # Your CFG.LSTM_SCALER_TYPE options
+  feature_engineering_variants: true
+
+# Hyperparameter Optimization Configuration  
+# NOTE: You use Optuna for LSTM optimization
+hyperparameter_optimization:
+  method: "optuna"
+  direction: "maximize"  # For accuracy/f1 score
+  
+  # Environment-specific settings
+  development:
+    n_trials: 20        # Fast iteration for development
+    epochs: 20
+  production:
+    n_trials: 100       # Full optimization for production
+    epochs: 100
+  
+  # Optuna search space for architecture (not fixed values!)
+  search_space:
+    # LSTM layers
+    n_lstm_layers: [1, 2, 3]
+    lstm_units_layer1: [32, 64, 128, 256]
+    lstm_units_layer2: [16, 32, 64, 128]
+    lstm_dropout: [0.1, 0.2, 0.3, 0.4, 0.5]
+    recurrent_dropout: [0.1, 0.2, 0.3, 0.4, 0.5]
+    
+    # Dense layers
+    n_dense_layers: [1, 2, 3]
+    dense_units: [16, 32, 64, 128]
+    dense_dropout: [0.2, 0.3, 0.4, 0.5]
+    
+    # Training parameters
+    batch_size: [16, 32, 64, 128]
+    learning_rate: [0.0001, 0.0005, 0.001, 0.005, 0.01]
+    optimizer: ["adam", "rmsprop", "adamax"]
+    sequence_length: [30, 45, 60, 75, 90]  # Your CFG.LSTM_SEQUENCE_LENGTH
+
+# Base architecture template (for reference only)
+architecture_template:
+  base_sequence_length: 60
+  output_activation: "sigmoid"  # For binary classification
+  loss: "binary_crossentropy"
+  metrics: ["accuracy", "precision", "recall"]
+
+# Training configuration
+training:
+  validation_split: 0.2
+  early_stopping:
+    monitor: "val_loss"
+    patience: 10
+    restore_best_weights: true
+  reduce_lr:
+    monitor: "val_loss"
+    factor: 0.5
+    patience: 5
+    min_lr: 1e-7
+
+# Model artifacts paths - organized by coin/granularity
+artifacts:
+  models_base_dir: "models/{coin}/{granularity}/LSTM"
+  model_file: "models/{coin}/{granularity}/LSTM/model.h5"
+  scaler_file: "models/{coin}/{granularity}/LSTM/scaler.pkl"
+  best_params_file: "models/{coin}/{granularity}/LSTM/best_params.json"
+  optuna_study_file: "models/{coin}/{granularity}/LSTM/optuna_study.pkl"
+  training_history_file: "models/{coin}/{granularity}/LSTM/training_history.json"
+  data_prep_results_file: "models/{coin}/{granularity}/LSTM/data_prep_optimization.json"
+  model_metadata_file: "models/{coin}/{granularity}/LSTM/metadata.json" 

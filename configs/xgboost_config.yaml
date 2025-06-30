@@ -1,0 +1,57 @@
+# XGBoost Model Configuration
+
+model:
+  name: "XGBoost"
+  type: "classification"
+
+# Hyperparameter Optimization Configuration
+# NOTE: Actual hyperparameters are tuned per coin/granularity and saved with models
+hyperparameter_optimization:
+  method: "random_search_cv"
+  
+  # Environment-specific settings
+  development:
+    iterations: 50      # Fast iteration for development
+    cv_folds: 3
+  production:
+    iterations: 1000    # Full search for production (your CFG.TUNING_ITERATIONS)
+    cv_folds: 5        # Your CFG.CV_SPLITS
+  
+  random_state: 42
+  
+  # Search space for hyperparameters (not fixed values!)
+  search_space:
+    n_estimators: [50, 100, 200, 500, 1000]
+    max_depth: [3, 4, 5, 6, 7, 8, 10]
+    learning_rate: [0.01, 0.05, 0.1, 0.15, 0.2, 0.3]
+    subsample: [0.6, 0.7, 0.8, 0.9, 1.0]
+    colsample_bytree: [0.6, 0.7, 0.8, 0.9, 1.0]
+    gamma: [0, 0.1, 0.2, 0.5, 1.0]
+    min_child_weight: [1, 3, 5, 7]
+    reg_alpha: [0, 0.01, 0.1, 1, 10]
+    reg_lambda: [0, 0.01, 0.1, 1, 10]
+
+# Feature Selection Configuration  
+feature_selection:
+  method: "top_n"
+  threshold: 30    # Your CFG.XGB_FEATURE_SELECTION_THRESHOLD
+  preliminary_params:
+    n_estimators: 100
+    random_state: 42
+
+# Model artifacts paths - organized by coin/granularity
+artifacts:
+  models_base_dir: "models/{coin}/{granularity}/XGBoost"
+  model_file: "models/{coin}/{granularity}/XGBoost/model.pkl" 
+  hyperparameters_file: "models/{coin}/{granularity}/XGBoost/best_params.json"
+  feature_importance_file: "models/{coin}/{granularity}/XGBoost/feature_importance.csv"
+  selected_features_file: "models/{coin}/{granularity}/XGBoost/features.json"
+  cv_results_file: "models/{coin}/{granularity}/XGBoost/cv_results.json"
+  model_metadata_file: "models/{coin}/{granularity}/XGBoost/metadata.json"
+
+# Training configuration
+training:
+  early_stopping_rounds: 10
+  eval_metric: "logloss"
+  verbose: False
+  n_jobs: -1 

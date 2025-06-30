@@ -1,0 +1,36 @@
+# Base Configuration - Common settings
+project:
+  name: "ds_crypto_2025"
+  description: "Cryptocurrency price prediction using XGBoost and LSTM"
+
+# Data Configuration
+data:
+  raw_data_file: ""
+  processed_data_file: "data/OHLCV_ffill.parquet"
+  
+  # Column specifications
+  columns:
+    coin_id: "coin_id"
+    timestamp: "timestamp"
+    target: "target_direction"
+  
+  # Data processing parameters
+  granularity: "10min"  # 10min, 1H, 4H, 1D
+  prediction_horizon_steps: 1
+  
+  # Available coins
+  available_coins: ["BNBUSDT", "BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT"]
+  default_coin: "BNBUSDT"
+  chosen_coin: "BNBUSDT" 
+
+# Train/Test Split Configuration
+splitting:
+  train_ratio: 0.93
+  split_round_frequency: "month"  # month, day, or empty string
+  cv_splits: 5
+  rolling_fixed_window_size: 0.93
+  rolling_initial_window_size: 0.93
+
+# Feature Engineering
+features:
+  exclude_features: ["missing_flag", "future_price", "future_log_return", "target_direction"] 
