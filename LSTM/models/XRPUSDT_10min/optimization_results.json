@@ -1,0 +1,52 @@
+{
+  "best_hyperparameters": {
+    "lstm_units_l1": 128,
+    "lstm_units_l2": 128,
+    "dropout_rate_l1": 0.1,
+    "dropout_rate_l2": 0.2,
+    "dense_units": 64,
+    "learning_rate": 0.0004201672054372534,
+    "batch_size": 256
+  },
+  "best_validation_roc_auc": 0.5357499697882405,
+  "optimization_trials": 5,
+  "timestamp": "20250626_200717",
+  "data_loader_config": {
+    "scaler_type": "robust",
+    "sequence_length": 40,
+    "chosen_coin": "XRPUSDT",
+    "granularity": "10min",
+    "feature_columns": [
+      "price_vs_ema_20",
+      "price_vs_ema_50",
+      "gap_up",
+      "bb_position",
+      "stoch_k",
+      "vwap",
+      "shadow_ratio",
+      "hour_sin",
+      "vwap_5",
+      "return_3",
+      "resistance_50",
+      "price_vs_resistance_50",
+      "bb_mid",
+      "body_size",
+      "support_50",
+      "ema_20",
+      "bb_lower",
+      "dayofweek_sin",
+      "hour_cos",
+      "taker_buy_sell_ratio",
+      "resistance_20",
+      "low",
+      "vpt",
+      "volu_ma_50",
+      "hl_range",
+      "volume_sma_10",
+      "ema_12",
+      "return_1",
+      "support_20",
+      "taker_buy_base_asset_volume"
+    ]
+  }
+}

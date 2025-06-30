@@ -1,0 +1,296 @@
+{
+  "SOLUSDT": {
+    "coin": "SOLUSDT",
+    "best_config": {
+      "scaler_type": "robust",
+      "sequence_length": 20
+    },
+    "best_metrics": {
+      "roc_auc": 0.5220152496385956,
+      "accuracy": 0.515007259657725,
+      "val_loss": 0.6924094557762146
+    },
+    "all_results": [
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5212720072675879,
+        "final_val_accuracy": 0.5133423790140208,
+        "best_val_loss": 0.6924522519111633,
+        "best_epoch": 12,
+        "training_epochs": 12,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.5216688754417229,
+        "final_val_accuracy": 0.5146033181785723,
+        "best_val_loss": 0.6924605965614319,
+        "best_epoch": 7,
+        "training_epochs": 7,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.5213134702273915,
+        "final_val_accuracy": 0.515223653200657,
+        "best_val_loss": 0.6925209164619446,
+        "best_epoch": 9,
+        "training_epochs": 9,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5220152496385956,
+        "final_val_accuracy": 0.515007259657725,
+        "best_val_loss": 0.6924094557762146,
+        "best_epoch": 8,
+        "training_epochs": 8,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "robust",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5213299684695523,
+        "final_val_accuracy": 0.5154862516367099,
+        "best_val_loss": 0.692498505115509,
+        "best_epoch": 13,
+        "training_epochs": 13,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 40,
+        "final_val_roc_auc": 0.5201304398724622,
+        "final_val_accuracy": 0.5140565116998739,
+        "best_val_loss": 0.692531168460846,
+        "best_epoch": 12,
+        "training_epochs": 12,
+        "data_shapes": {
+          "X_train": [
+            210041,
+            40,
+            30
+          ],
+          "y_train": [
+            210041
+          ],
+          "X_test": [
+            16682,
+            40,
+            30
+          ],
+          "y_test": [
+            16682
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 30,
+        "final_val_roc_auc": 0.520597514525174,
+        "final_val_accuracy": 0.5127942681678608,
+        "best_val_loss": 0.6925638318061829,
+        "best_epoch": 10,
+        "training_epochs": 10,
+        "data_shapes": {
+          "X_train": [
+            210051,
+            30,
+            30
+          ],
+          "y_train": [
+            210051
+          ],
+          "X_test": [
+            16692,
+            30,
+            30
+          ],
+          "y_test": [
+            16692
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 50,
+        "final_val_roc_auc": 0.518217100960501,
+        "final_val_accuracy": 0.513509653153046,
+        "best_val_loss": 0.6926618218421936,
+        "best_epoch": 19,
+        "training_epochs": 19,
+        "data_shapes": {
+          "X_train": [
+            210031,
+            50,
+            30
+          ],
+          "y_train": [
+            210031
+          ],
+          "X_test": [
+            16672,
+            50,
+            30
+          ],
+          "y_test": [
+            16672
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 20,
+        "final_val_roc_auc": 0.5196335581920617,
+        "final_val_accuracy": 0.5145550186846929,
+        "best_val_loss": 0.6927627325057983,
+        "best_epoch": 30,
+        "training_epochs": 30,
+        "data_shapes": {
+          "X_train": [
+            210061,
+            20,
+            30
+          ],
+          "y_train": [
+            210061
+          ],
+          "X_test": [
+            16702,
+            20,
+            30
+          ],
+          "y_test": [
+            16702
+          ]
+        }
+      },
+      {
+        "coin": "SOLUSDT",
+        "scaler_type": "minmax",
+        "sequence_length": 60,
+        "final_val_roc_auc": 0.5206950533059991,
+        "final_val_accuracy": 0.5139626234972027,
+        "best_val_loss": 0.6925122141838074,
+        "best_epoch": 11,
+        "training_epochs": 11,
+        "data_shapes": {
+          "X_train": [
+            210021,
+            60,
+            30
+          ],
+          "y_train": [
+            210021
+          ],
+          "X_test": [
+            16662,
+            60,
+            30
+          ],
+          "y_test": [
+            16662
+          ]
+        }
+      }
+    ]
+  }
+}

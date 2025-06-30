@@ -1,0 +1,33 @@
+{
+  "granularity": "10min",
+  "optimization_config": {
+    "n_trials": 5,
+    "optimization_epochs": 30,
+    "final_epochs": 100,
+    "optimization_patience": 8,
+    "final_training_patience": 15,
+    "search_space": "fast_training",
+    "optimization_metric": "roc_auc"
+  },
+  "results_summary": {
+    "BNBUSDT": {
+      "best_validation_roc_auc": 0.518793302354267,
+      "best_test_roc_auc": 0.5150030589843241,
+      "best_hyperparameters": {
+        "lstm_units_l1": 64,
+        "lstm_units_l2": 16,
+        "dropout_rate_l1": 0.1,
+        "dropout_rate_l2": 0.1,
+        "dense_units": 16,
+        "learning_rate": 0.003991305878561679,
+        "batch_size": 32
+      },
+      "data_prep_config": {
+        "scaler_type": "robust",
+        "sequence_length": 40
+      },
+      "model_path": "/project/littlewood/Xiaoyuan/DS/erdos-proj/models/LSTM/lstm_optimized_models/BNBUSDT_10min/BNBUSDT/best_model_20250626_183552.h5",
+      "scaler_path": "/project/littlewood/Xiaoyuan/DS/erdos-proj/models/LSTM/lstm_optimized_models/BNBUSDT_10min/BNBUSDT/scaler_20250626_183552.pkl"
+    }
+  }
+}

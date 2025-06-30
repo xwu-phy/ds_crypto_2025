@@ -1,0 +1,52 @@
+{
+  "best_hyperparameters": {
+    "lstm_units_l1": 64,
+    "lstm_units_l2": 32,
+    "dropout_rate_l1": 0.1,
+    "dropout_rate_l2": 0.30000000000000004,
+    "dense_units": 16,
+    "learning_rate": 0.00022062850091494334,
+    "batch_size": 32
+  },
+  "best_validation_roc_auc": 0.5245034919083249,
+  "optimization_trials": 50,
+  "timestamp": "20250627_090907",
+  "data_loader_config": {
+    "scaler_type": "robust",
+    "sequence_length": 50,
+    "chosen_coin": "SOLUSDT",
+    "granularity": "10min",
+    "feature_columns": [
+      "price_vs_ema_20",
+      "ema_20",
+      "atr_14",
+      "resistance_20",
+      "vpt",
+      "bb_lower",
+      "vwap",
+      "taker_buy_sell_ratio",
+      "bb_mid",
+      "ema_12",
+      "adl",
+      "stoch_k",
+      "resistance_50",
+      "close",
+      "price_vs_resistance_50",
+      "ema_26",
+      "price_vs_support_20",
+      "vwap_5",
+      "volume_price_trend",
+      "shadow_ratio",
+      "price_vs_resistance_20",
+      "bb_upper",
+      "return_3",
+      "support_50",
+      "upper_shadow",
+      "bb_std",
+      "return_1",
+      "volu_ma_5",
+      "price_vs_support_50",
+      "garman_klass_vol"
+    ]
+  }
+}
