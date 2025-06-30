@@ -1,0 +1,52 @@
+{
+  "best_hyperparameters": {
+    "lstm_units_l1": 64,
+    "lstm_units_l2": 128,
+    "dropout_rate_l1": 0.5,
+    "dropout_rate_l2": 0.4,
+    "dense_units": 16,
+    "learning_rate": 0.001379783512975273,
+    "batch_size": 128
+  },
+  "best_validation_roc_auc": 0.5241782956087216,
+  "optimization_trials": 50,
+  "timestamp": "20250627_064201",
+  "data_loader_config": {
+    "scaler_type": "robust",
+    "sequence_length": 20,
+    "chosen_coin": "BTCUSDT",
+    "granularity": "1H",
+    "feature_columns": [
+      "shadow_ratio",
+      "return_3",
+      "is_hammer",
+      "taker_buy_sell_ratio",
+      "ema_12",
+      "price_momentum_5",
+      "atr_14",
+      "vwap_5",
+      "bb_mid",
+      "return_1",
+      "stoch_k",
+      "hour_cos",
+      "volume_price_trend",
+      "resistance_50",
+      "bb_position",
+      "volatility_5",
+      "resistance_20",
+      "vpt",
+      "volume",
+      "price_vs_ema_50",
+      "adl",
+      "lower_shadow",
+      "price_vs_resistance_50",
+      "upper_shadow",
+      "bb_upper",
+      "parkinson_vol",
+      "hl_spread_ma",
+      "hurst_10",
+      "hl_spread",
+      "price_vs_vwap"
+    ]
+  }
+}
