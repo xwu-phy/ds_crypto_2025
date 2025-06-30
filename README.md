@@ -48,6 +48,7 @@ A rigorous, temporally-aware validation process was used to prevent data leakage
 * The final models were evaluated on a completely **out-of-sample test set** (all data after Jan 1, 2025).
 
 ## 📈 Key Results (10-Minute Interval)
+![model_performance_comparison_enhanced](https://github.com/user-attachments/assets/f296b10a-6252-4356-b0bb-31da57da8252)
 
 All machine learning models demonstrated a significant performance uplift over the ARIMA and Buy-and-Hold baselines on the 10-minute interval test set.
 
