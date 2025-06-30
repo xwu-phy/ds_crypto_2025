@@ -1,0 +1,17 @@
+{
+    "original_shape": [
+        11349947,
+        13
+    ],
+    "final_shape": [
+        11355305,
+        14
+    ],
+    "rows_added": 5358,
+    "coins": 5,
+    "date_range": {
+        "start": "2021-01-01 00:00:00",
+        "end": "2025-04-27 03:00:00"
+    },
+    "total_trading_days": 1577
+}

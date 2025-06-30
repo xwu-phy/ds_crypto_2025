@@ -1,0 +1,52 @@
+{
+  "best_hyperparameters": {
+    "lstm_units_l1": 32,
+    "lstm_units_l2": 16,
+    "dropout_rate_l1": 0.1,
+    "dropout_rate_l2": 0.1,
+    "dense_units": 8,
+    "learning_rate": 0.001955370866274525,
+    "batch_size": 32
+  },
+  "best_validation_roc_auc": 0.5327495962613554,
+  "optimization_trials": 5,
+  "timestamp": "20250626_205848",
+  "data_loader_config": {
+    "scaler_type": "robust",
+    "sequence_length": 50,
+    "chosen_coin": "ETHUSDT",
+    "granularity": "1H",
+    "feature_columns": [
+      "return_3",
+      "ema_12",
+      "price_momentum_5",
+      "ema_26",
+      "ma_5",
+      "stoch_k",
+      "support_50",
+      "volume_price_trend",
+      "resistance_20",
+      "price_vs_resistance_50",
+      "volu_ma_50",
+      "return_1",
+      "hour_cos",
+      "volu_ma_20",
+      "hl_spread_ma",
+      "taker_buy_quote_asset_volume",
+      "trade_size_mean",
+      "vpt",
+      "volume_ratio_5",
+      "taker_buy_sell_ratio",
+      "price_vs_support_20",
+      "dayofweek_cos",
+      "atr_14",
+      "volu_ma_5",
+      "volume_momentum_10",
+      "body_ratio",
+      "high",
+      "macd",
+      "garman_klass_vol",
+      "vol_5"
+    ]
+  }
+}
